@@ -17,7 +17,8 @@ logback 1.1.7
 ----------------------------------------------------------------------------------------------
 Script para gerar o banco em MySQL:
 
-/*All User's gets stored in APP_USER table*/
+--- All User's gets stored in APP_USER table
+
 create table APP_USER (
    id BIGINT NOT NULL AUTO_INCREMENT,
    sso_id VARCHAR(30) NOT NULL,
@@ -29,7 +30,8 @@ create table APP_USER (
    UNIQUE (sso_id)
 );
    
-/* USER_PROFILE table contains all possible roles */ 
+--- USER_PROFILE table contains all possible roles
+
 create table USER_PROFILE(
    id BIGINT NOT NULL AUTO_INCREMENT,
    type VARCHAR(30) NOT NULL,
@@ -37,7 +39,8 @@ create table USER_PROFILE(
    UNIQUE (type)
 );
    
-/* JOIN TABLE for MANY-TO-MANY relationship*/  
+--- JOIN TABLE for MANY-TO-MANY relationship
+
 CREATE TABLE APP_USER_USER_PROFILE (
     user_id BIGINT NOT NULL,
     user_profile_id BIGINT NOT NULL,
@@ -46,7 +49,8 @@ CREATE TABLE APP_USER_USER_PROFILE (
     CONSTRAINT FK_USER_PROFILE FOREIGN KEY (user_profile_id) REFERENCES USER_PROFILE (id)
 );
   
-/* Populate USER_PROFILE Table */
+--- Populate USER_PROFILE Table 
+
 INSERT INTO USER_PROFILE(type)
 VALUES ('USER');
   
@@ -57,17 +61,20 @@ INSERT INTO USER_PROFILE(type)
 VALUES ('DBA');
   
   
-/* Populate one Admin User which will further create other users for the application using GUI */
+--- Populate one Admin User which will further create other users for the application using GUI 
+
 INSERT INTO APP_USER(sso_id, password, first_name, last_name, email)
 VALUES ('diego','$2a$10$4eqIF5s/ewJwHK1p8lqlFOEm2QIA0S8g6./Lok.pQxqcxaBZYChRm', 'Diego','Uchoa','diego.uchoa@tecnisys.com.br');
   
   
-/* Populate JOIN Table */
+--- Populate JOIN Table
+
 INSERT INTO APP_USER_USER_PROFILE (user_id, user_profile_id)
   SELECT user.id, profile.id FROM APP_USER user, USER_PROFILE profile
   where user.sso_id='diego' and profile.type='ADMIN';
  
-/* Create persistent_logins Table used to store rememberme related stuff*/
+--- Create persistent_logins Table used to store rememberme related stuff
+
 CREATE TABLE PERSISTENT_LOGINS (
     username VARCHAR(64) NOT NULL,
     series VARCHAR(64) NOT NULL,
@@ -79,9 +86,9 @@ CREATE TABLE PERSISTENT_LOGINS (
 ----------------------------------------------------------------------------------------------
 
 Para executar a aplicação, execute o comando:
-'''
+```
 mvn clean install
-'''
+```
 
 Dentro da pasta do projeto e realize o deploy do .war gerado no tomcat.
 
