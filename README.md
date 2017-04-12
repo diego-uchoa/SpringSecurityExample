@@ -1,6 +1,6 @@
-###Aplicação de exemplo
+###Aplicação de exemplo###
 
-####Tecnologias utilizadas no projeto:
+####Tecnologias utilizadas no projeto:####
 
 Spring 4.2.5.RELEASE
 Spring Security 4.0.4.RELEASE
@@ -15,7 +15,7 @@ Eclipse NEON 3
 logback 1.1.7
 
 ----------------------------------------------------------------------------------------------
-####Script para gerar o banco em MySQL:
+####Script para gerar o banco em MySQL:####
 
 --- All User's gets stored in APP_USER table
 
