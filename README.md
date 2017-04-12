@@ -2,21 +2,21 @@
 
 # Tecnologias utilizadas no projeto:
 
-Spring 4.2.5.RELEASE
-Spring Security 4.0.4.RELEASE
-Hibernate Core 4.3.11.Final
-validation-api 1.1.0.Final
-hibernate-validator 5.1.3.Final
-MySQL Server 5.6
-Maven 3
-JDK 1.8
-Tomcat 8.0.21
-Eclipse NEON 3
-logback 1.1.7
+- Spring 4.2.5.RELEASE
+- Spring Security 4.0.4.RELEASE
+- Hibernate Core 4.3.11.Final
+- validation-api 1.1.0.Final
+- hibernate-validator 5.1.3.Final
+- MySQL Server 5.6
+- Maven 3
+- JDK 1.8
+- Tomcat 8.0.21
+- Eclipse NEON 3
+- logback 1.1.7
 
 ----------------------------------------------------------------------------------------------
 # Script para gerar o banco em MySQL:
-
+```
 --- All User's gets stored in APP_USER table
 
 create table APP_USER (
@@ -82,7 +82,7 @@ CREATE TABLE PERSISTENT_LOGINS (
     last_used TIMESTAMP NOT NULL,
     PRIMARY KEY (series)
 );
-
+```
 ----------------------------------------------------------------------------------------------
 
 Para executar a aplicação, execute o comando:
